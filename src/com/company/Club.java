@@ -34,7 +34,7 @@ public class Club {
                 club.switchMusic(musicChange,dancers);
             }
         } else {
-            System.out.println("Введен неверный ответ 1");
+            System.out.println("Введен неверный ответ");
             scanner.close();
             System.exit(0);
         }

@@ -31,7 +31,7 @@ public class Club {
             while (true) {
                 System.out.println("Выберите жанр композиции или завершите программу (rock,rap,pop,exit,rand)");
                 String musicChange = scanner.nextLine();
-                club.switchMusic(musicChange,dancers);
+                club.switchMusic(musicChange, dancers);
             }
         } else {
             System.out.println("Введен неверный ответ");
@@ -70,15 +70,15 @@ public class Club {
         switch (musicChange) {
             case "rock":
                 System.out.println("Now play Rock");
-                dancers.forEach(Human::dance);
+                dancers.forEach(human -> human.listenMusic(musicChange));
                 break;
             case "rap":
                 System.out.println("Now play Rap");
-                dancers.forEach(Human::dance);
+                dancers.forEach(human -> human.listenMusic(musicChange));
                 break;
             case "pop":
                 System.out.println("Now play Pop");
-                dancers.forEach(Human::dance);
+                dancers.forEach(human -> human.listenMusic(musicChange));
                 break;
             case "rand":
                 this.setRandom(1, this);

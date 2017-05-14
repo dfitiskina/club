@@ -1,6 +1,9 @@
 package com.company;
 
 public interface Human {
-     void dance();
-     void drink();
+    void listenMusic(String a);
+
+    void dance();
+
+    void drink();
 }

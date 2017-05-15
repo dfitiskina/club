@@ -4,43 +4,21 @@ import java.util.*;
 import java.lang.String;
 import java.lang.*;
 
-public class Club {
+class Club {
+    private static int period = 7000;
     private static int count = 0;
-    private static List<Human> dancers = new ArrayList<>();
+    private List<Human> dancers = new ArrayList<>();
 
-    public static void main(String[] args) {
-        Club club = new Club();
+    //public static List<Human> getDancers() {
+    //  return dancers;
+    //}
 
-        Human rocker = new Rocker();
-        Human raper = new Raper();
-        Human dancer = new Dancer();
-
-        dancers = Arrays.asList(rocker, raper, dancer);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Вы хотите изменить музыку? (1/0)");
-        int answer;
-        answer = scanner.nextInt();
-
-        if (answer == 0) {
-            System.out.println("Ожидайте автоматической смены композиции");
-            club.setRandom(5, club);
-        } else if (answer == 1) {
-            scanner.nextLine();
-
-            while (true) {
-                System.out.println("Выберите жанр композиции или завершите программу (rock,rap,pop,exit,rand)");
-                String musicChange = scanner.nextLine();
-                club.switchMusic(musicChange, dancers);
-            }
-        } else {
-            System.out.println("Введен неверный ответ");
-            scanner.close();
-            System.exit(0);
-        }
+    void setDancers(List<Human> temp) {
+        this.dancers = temp;
     }
 
-    private void setRandom(int a, Club club) {
+
+    void setRandom(int numberOfRepeat) {
         Timer timer = new Timer();
         TimerTask tt = new TimerTask() {
 
@@ -53,20 +31,20 @@ public class Club {
                 musicTypes.add("pop");
 
                 String types = musicTypes.get(rand.nextInt(musicTypes.size()));
-                club.switchMusic(types, dancers);
+                switchMusic(types);
 
                 count++;
-                if (count >= a) {
+                if (count >= numberOfRepeat) {
                     timer.cancel();
                     count = 0;
                 }
             }
         };
 
-        timer.schedule(tt, 0, 5000);
+        timer.schedule(tt, 0, period);
     }
 
-    private void switchMusic(String musicChange, List<Human> dancers) {
+    void switchMusic(String musicChange) {
         switch (musicChange) {
             case "rock":
                 System.out.println("Now play Rock");
@@ -81,7 +59,7 @@ public class Club {
                 dancers.forEach(human -> human.listenMusic(musicChange));
                 break;
             case "rand":
-                this.setRandom(1, this);
+                this.setRandom(1);
                 break;
             case "exit":
                 System.exit(0);
@@ -91,4 +69,3 @@ public class Club {
         }
     }
 }
-

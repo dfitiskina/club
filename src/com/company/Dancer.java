@@ -4,8 +4,8 @@ import java.lang.String;
 import java.util.Objects;
 
 public class Dancer implements Human {
-    public void listenMusic(String a) {
-        if (Objects.equals(a, "pop")) {
+    public void listenMusic(String enteredType) {
+        if (Objects.equals(enteredType, "pop")) {
             this.dance();
         } else {
             this.drink();

@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Raper implements Human {
 
 
-    public void listenMusic(String a) {
-        if (Objects.equals(a, "rap")) {
+    public void listenMusic(String enteredType) {
+        if (Objects.equals(enteredType, "rap")) {
             this.dance();
         } else {
             this.drink();

@@ -1,7 +1,7 @@
 package com.company;
 
 public interface Human {
-    void listenMusic(String a);
+    void listenMusic(String enteredType);
 
     void dance();
 

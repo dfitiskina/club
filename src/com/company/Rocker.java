@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Rocker implements Human {
 
-    public void listenMusic(String a) {
-        if (Objects.equals(a, "rock")) {
+    public void listenMusic(String enteredType) {
+        if (Objects.equals(enteredType, "rock")) {
             this.dance();
         } else {
             this.drink();
